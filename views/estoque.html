@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- jQuery e CSS Bootstrap 5 -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="imagex/png" href="assets/img/icone.png">
+     <!-- Arquivos locais -->
+     <link rel="stylesheet" href="../assets/css/forms.css">
+    <title>Projeto - Lojinha (Estoque)</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container" id="entrada">
+            <h3 id="titulo_entrada">Estoque</h3>
+        </div><br>
+    
+    <form class="container" id="form" action="estoque.form.php" method="POST">
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">ID do produto:</label>
+            <input name="id_produto" required="required" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Digite o ID do produto...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Data da entrada:</label>
+            <input name="dt_entrada" required="required" type="date" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Quantidade:</label>
+            <input name="qtd_produto" required="required" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Digite a quantidade...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Data de fabricação:</label>
+            <input name="dt_fabricacao" required="required" type="date" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Data de vencimento:</label>
+            <input name="dt_vencimento" required="required" type="date" class="form-control" id="exampleFormControlInput1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Nota Fiscal:</label>
+            <input name="nf_compra" required="required" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite a nota fiscal da compra...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Preço da compra:</label>
+            <input name="preco_compra" required="required" type="number" maxlength="15" class="form-control" id="exampleFormControlInput1" placeholder="Digite o preço da compra...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">ICMS da Compra:</label>
+            <input name="icms_compra" required="required" type="number" maxlength="15" class="form-control" id="exampleFormControlInput1" placeholder="Digite o ICMS da compra...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Preço da venda:</label>
+            <input name="preco_venda" required="required" type="number" maxlength="15" class="form-control" id="exampleFormControlInput1" placeholder="Digite o preço da venda...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Quantidade vendida:</label>
+            <input name="qtd_vendida" required="required" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Digite a quantidade vendida...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Quantidade de ocorrências:</label>
+            <input name="qtd_ocorrencia" required="required" type="number" class="form-control" id="exampleFormControlInput1" placeholder="Digite a quantidade de ocorrências...">
+        </div>
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Ocorrência:</label>
+            <input name="ocorrencia" required="required" type="text" class="form-control" id="exampleFormControlInput1" placeholder="Digite a ocorrência...">
+        </div>
+
+        <center>
+            <button style="background-color: #cc0000;" id="bttn_registrar" class="btn btn-primary">Registrar</button>
+        </center>
+    </form><br><br>
+    </div>
+
+    <!-- Rodapé -->
+    <footer id="myFooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-1">
+                    <h5>Início</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-5"><br><br>
+                    <ul>
+                        <li>
+                            <p><b>Telefone:</b> <br>(11) 96726-3940</p>
+                        </li>
+                        <li>
+                            <p><b>Email:</b> <br>renan.santos@aluno.ifsp.edu.br</p>
+                        </li>
+                        <li>
+                            <p><b>Endereço:</b> Av. Penedo, 422, Jardim Normândia, Guarulhos - SP</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <div class="social-networks">
+                        <a href="https://api.whatsapp.com/send?phone=551196726-3940&text=sua%20mensagem" class="whatsapp" target="_blank"><img class='img_footer' src='../assets/img/logo_whatsapp.png'></i></a>
+                        <a href="https://www.facebook.com/renan.siqueira.3363/" class="facebook" target="_blank"><img class='img_footer' src='../assets/img/logo_facebook.png'></i></a>
+                        <a href="https://github.com/Renan397" class="github" target="_blank"><img class='img_footer' src='../assets/img/logo_github.png'></i></a>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2022 Copyright - Renan Siqueira dos Santos</p>
+        </div>
+    </footer>
+</body>
+</html>
