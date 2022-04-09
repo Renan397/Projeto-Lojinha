@@ -1,7 +1,7 @@
 <?php
 include_once "DBConn.class.php";
 $DBConn = new DBConn();
-class Usuario {
+class Usuarios {
     private $idUsuario;
     private $email;
     private $senha;
@@ -16,6 +16,21 @@ class Usuario {
     private $telefone;
     private $foto;
     private $ativo;
+
+    public function __construct($email, $senha, $idNivelUsuario, $nome, $cpf, $endereco, $bairro, $cidade, $uf, $cep, $telefone, $foto) {
+        $this->setEmail($email);
+        $this->setSenha($senha);
+        $this->setIdNivelUsuario($idNivelUsuario);
+        $this->setNome($nome);
+        $this->setCpf($cpf);
+        $this->setEndereco($endereco);
+        $this->setBairro($bairro);
+        $this->setCidade($cidade);
+        $this->setUf($uf);
+        $this->setCep($cep);
+        $this->setTelefone($telefone);
+        $this->setFoto($foto);
+    }
 
     public function getIdUsuario(){
         return $this->idUsuario;
@@ -143,5 +158,49 @@ class Usuario {
         return $this;
     }
 
+    public function insertUsuarios() {
+        $emailDB = $this->getEmail();
+        $senhaDB = $this->getSenha();
+        $usuario_idnivelDB = $this->getIdNivelUsuario();
+        $nomeDB = $this->getNome();
+        $cpfDB = $this->getCpf();
+        $enderecoDB = $this->getEndereco();
+        $bairroDB = $this->getBairro();
+        $cidadeDB = $this->getCidade();
+        $ufDB = $this->getUf();
+        $cepDB = $this->getCep();
+        $telefoneDB = $this->getTelefone();
+        $fotoDB = $this->getFoto();
+
+        $sqlCommand = "INSERT INTO usuarios (email, senha, idNivelUsuario, nome, cpf, endereco, bairro, cidade, uf, cep, telefone, foto) values ('$emailDB', '$senhaDB', '$usuario_idnivelDB', '$nomeDB', '$cpfDB', '$enderecoDB', '$bairroDB', '$cidadeDB', '$ufDB', '$cepDB', '$telefoneDB', '$fotoDB');";
+        return $sqlCommand;
+    }
+    public function selectUsuarios() {
+    
+        $sqlCommand = "SELECT *FROM usuarios;";
+        return $sqlCommand;
+    }
+    public function updateUsuarios() {
+        $emailDB = $this->getEmail();
+        $senhaDB = $this->getSenha();
+        $usuario_idnivelDB = $this->getIdNivelUsuario();
+        $nomeDB = $this->getNome();
+        $cpfDB = $this->getCpf();
+        $enderecoDB = $this->getEndereco();
+        $bairroDB = $this->getBairro();
+        $cidadeDB = $this->getCidade();
+        $ufDB = $this->getUf();
+        $cepDB = $this->getCep();
+        $telefoneDB = $this->getTelefone();
+        $fotoDB = $this->getFoto();
+
+        $sqlCommand = "UPDATE usuarios SET email = '$emailDB', senha = '$senhaDB', idNivelUsuario = '$usuario_idnivelDB', nome = '$nomeDB', cpf = '$cpfDB', endereco = '$enderecoDB', bairro = '$bairroDB', cidade = '$cidadeDB', uf = '$ufDB', cep = '$cepDB', telefone = '$telefoneDB', foto = '$fotoDB' WHERE idUsuario = '';";
+        return $sqlCommand;
+    }
+    public function deleteUsuarios() {
+
+        $sqlCommand = "DELETE FROM usuarios WHERE idUsuario = '';";
+        return $sqlCommand;
+    }
 }
 ?>

@@ -12,15 +12,15 @@
     <link rel="shortcut icon" type="imagex/png" href="../assets/img/logo.png">
      <!-- Arquivos locais -->
      <link rel="stylesheet" href="../assets/css/forms.css">
-    <title>Projeto - Lojinha (Usuário)</title>
+    <title>Projeto - Lojinha (Usuários)</title>
 </head>
 <body>
     <div class="container">
         <div class="container" id="entrada">
-            <h3 id="titulo_entrada">Usuário</h3>
+            <h3 id="titulo_entrada">Usuários</h3>
         </div><br>
     
-    <form class="container" id="form" action="usuario.form.php" method="POST">
+    <form class="container" id="form" action="usuarios.form.php" method="POST">
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Email:</label>
             <input name="usuario_email" required="required" type="email" maxlength="50" class="form-control" id="exampleFormControlInput1" placeholder="Digite o email...">
@@ -31,7 +31,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">ID de nível do usuário:</label>
-            <input name="usuario_idnivel" required="required" type="number" class="form-control" id="exampleFormControlInput1">
+            <input name="usuario_idnivel" required="required" type="number" max="7" class="form-control" id="exampleFormControlInput1">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nome:</label>
