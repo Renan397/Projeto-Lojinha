@@ -1,4 +1,6 @@
 <?php
+include_once "DBConn.class.php";
+$DBConn = new DBConn();
 class Estoque {
     private $idEstoque;
     private $idProduto;
@@ -14,6 +16,21 @@ class Estoque {
     private $qtdOcorrencia;
     private $ocorrencia;
     
+    function __construct($idProduto, $dtEntrada, $quantidade, $dtFabricacao, $dtVencimento, $nfCompra, $precoCompra, $icmsCompra, $precoVenda, $qtdVendida, $qtdOcorrencia, $ocorrencia) {
+        $this->setIdProduto($idProduto);
+        $this->setDtEntrada($dtEntrada);
+        $this->setQuantidade($quantidade);
+        $this->setDtFabricacao($dtFabricacao);
+        $this->setDtVencimento($dtVencimento);
+        $this->setNfCompra($nfCompra);
+        $this->setPrecoCompra($precoCompra);
+        $this->setIcmsCompra($icmsCompra);
+        $this->setPrecoVenda($precoVenda);
+        $this->setQtdVendida($qtdVendida);
+        $this->setQtdOcorrencia($qtdOcorrencia);
+        $this->setOcorrencia($ocorrencia);
+    }
+
     public function getIdEstoque(){
         return $this->idEstoque;
     }
@@ -131,6 +148,50 @@ class Estoque {
         return $this;
     }
 
+    public function insertEstoque() {
+        $id_produtoDB = $this->getIdProduto();
+        $dt_entradaDB = $this->getDtEntrada();
+        $qtd_produtoDB = $this->getQuantidade();
+        $dt_fabricacaoDB = $this->getDtFabricacao();
+        $dt_vencimentoDB = $this->getDtVencimento();
+        $nf_compraDB = $this->getNfCompra();
+        $preco_compraDB = $this->getPrecoCompra();
+        $icms_compraDB = $this->getIcmsCompra();
+        $preco_vendaDB = $this->getPrecoVenda();
+        $qtd_vendidaDB = $this->getQtdVendida();
+        $qtd_ocorrenciaDB = $this->getQtdOcorrencia();
+        $ocorrenciaDB = $this->getOcorrencia();
+
+        $sqlCommand = "INSERT INTO estoque (idProduto, dtEntrada, quantidade, dtFabricacao, dtVencimento, nfCompra, precoCompra, icmsCompra, precoVenda, qtdVendida, qtdOcorrencia, ocorrencia) values ('$id_produtoDB', '$dt_entradaDB', '$qtd_produtoDB', '$dt_fabricacaoDB', '$dt_vencimentoDB', '$nf_compraDB', '$preco_compraDB', '$icms_compraDB', '$preco_vendaDB', '$qtd_vendidaDB', '$qtd_ocorrenciaDB', '$ocorrenciaDB');";
+        return $sqlCommand;
+    }
+    public function selectEstoque() {
+    
+        $sqlCommand = "SELECT *FROM estoque;";
+        return $sqlCommand;
+    }
+    public function updateEstoque() {
+        $id_produtoDB = $this->getIdProduto();
+        $dt_entradaDB = $this->getDtEntrada();
+        $qtd_produtoDB = $this->getQuantidade();
+        $dt_fabricacaoDB = $this->getDtFabricacao();
+        $dt_vencimentoDB = $this->getDtVencimento();
+        $nf_compraDB = $this->getNfCompra();
+        $preco_compraDB = $this->getPrecoCompra();
+        $icms_compraDB = $this->getIcmsCompra();
+        $preco_vendaDB = $this->getPrecoVenda();
+        $qtd_vendidaDB = $this->getQtdVendida();
+        $qtd_ocorrenciaDB = $this->getQtdOcorrencia();
+        $ocorrenciaDB = $this->getOcorrencia();
+
+        $sqlCommand = "UPDATE estoque SET idProduto = '$id_produtoDB', dtEntrada = '$dt_entradaDB', quantidade = '$qtd_produtoDB', dtFabricacao = '$dt_fabricacaoDB', dtVencimento = '$dt_vencimentoDB', nfCompra = '$nf_compraDB', precoCompra = '$preco_compraDB', icmsCompra = '$icms_compraDB', precoVenda = '$preco_vendaDB', qtdVendida = '$qtd_vendidaDB', qtdOcorrencia = '$qtd_ocorrenciaDB', ocorrencia = '$ocorrenciaDB' WHERE idEstoque = '';";
+        return $sqlCommand;
+    }
+    public function deleteEstoque() {
+
+        $sqlCommand = "DELETE FROM categorias WHERE idEstoque = '';";
+        return $sqlCommand;
+    }
 }
 
 ?>

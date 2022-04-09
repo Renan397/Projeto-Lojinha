@@ -1,4 +1,6 @@
 <?php
+include_once "DBConn.class.php";
+$DBConn = new DBConn();
 class Institucional {
    private $idInstitucional;
    private $nome;
@@ -13,6 +15,20 @@ class Institucional {
    private $email;
    private $logo;
    
+   function __construct($nome, $cpf_cnpj, $tipoPessoa, $endereco, $bairro, $cidade, $uf, $cep, $telefone, $email, $logo) {
+    $this->setNome($nome);
+    $this->setCpf_cnpj($cpf_cnpj);
+    $this->setTipoPessoa($tipoPessoa);
+    $this->setEndereco($endereco);
+    $this->setBairro($bairro);
+    $this->setCidade($cidade);
+    $this->setUf($uf);
+    $this->setCep($cep);
+    $this->setTelefone($telefone);
+    $this->setEmail($email);
+    $this->setLogo($logo);
+    }
+
     public function getIdInstitucional(){
         return $this->idInstitucional;
     }
@@ -121,6 +137,47 @@ class Institucional {
         return $this;
     }
 
-}
+    public function insertInstitucional() {
+        $nome_institucionalDB = $this->getNome();
+        $cpf_cnpjDB = $this->getCpf_cnpj();
+        $tipo_PessoaDB = $this->getTipoPessoa();
+        $enderecoDB = $this->getEndereco();
+        $bairroDB = $this->getBairro();
+        $cidadeDB = $this->getCidade();
+        $ufDB = $this->getUf();
+        $cepDB = $this->getCep();
+        $telefoneDB = $this->getTelefone();
+        $emailDB = $this->getEmail();
+        $logoDB = $this->getLogo();
 
+        $sqlCommand = "INSERT INTO institucional (nome, cpf_cnpj, tipoPessoa, endereco, bairro, cidade, uf, cep, telefone, email, logo) values ('$nome_institucionalDB', '$cpf_cnpjDB', '$tipo_PessoaDB', '$enderecoDB', '$bairroDB', '$cidadeDB', '$ufDB', '$cepDB', '$telefoneDB', '$emailDB', '$logoDB');";
+        return $sqlCommand;
+    }
+    public function selectInstitucional() {
+    
+        $sqlCommand = "SELECT *FROM institucional;";
+        return $sqlCommand;
+    }
+    public function updateInstitucional() {
+        $nome_institucionalDB = $this->getNome();
+        $cpf_cnpjDB = $this->getCpf_cnpj();
+        $tipo_PessoaDB = $this->getTipoPessoa();
+        $enderecoDB = $this->getEndereco();
+        $bairroDB = $this->getBairro();
+        $cidadeDB = $this->getCidade();
+        $ufDB = $this->getUf();
+        $cepDB = $this->getCep();
+        $telefoneDB = $this->getTelefone();
+        $emailDB = $this->getEmail();
+        $logoDB = $this->getLogo();
+
+        $sqlCommand = "UPDATE institucional SET cpf_cnpj = '$cpf_cnpjDB', tipoPessoa = '$tipo_PessoaDB', endereco = '$enderecoDB', bairro = '$bairroDB', cidade = '$cidadeDB', uf = '$ufDB', cep = '$cepDB', telefone = '$telefoneDB', email = '$emailDB', logo = '$logoDB' WHERE idInstituicao = '';";
+        return $sqlCommand;
+    }
+    public function deleteInstitucional() {
+
+        $sqlCommand = "DELETE FROM institucional WHERE idInstituicao = '';";
+        return $sqlCommand;
+    }
+}
 ?>

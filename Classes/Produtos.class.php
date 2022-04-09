@@ -1,4 +1,6 @@
 <?php
+include_once "DBConn.class.php";
+$DBConn = new DBConn();
 class Produtos {
     private $idProduto;
     private $fabricante;
@@ -14,6 +16,21 @@ class Produtos {
     private $peso;
     private $cor;
     
+    function __construct($fabricante, $nome, $marca, $modelo, $idCategoria, $descricao, $unidadeMedida, $largura, $altura, $profundidade, $peso, $cor) {
+        $this->setFabricante($fabricante);
+        $this->setNome($nome);
+        $this->setMarca($marca);
+        $this->setModelo($modelo);
+        $this->setIdCategoria($idCategoria);
+        $this->setDescricao($descricao);
+        $this->setUnidadeMedida($unidadeMedida);
+        $this->setLargura($largura);
+        $this->setAltura($altura);
+        $this->setProfundidade($profundidade);
+        $this->setPeso($peso);
+        $this->setCor($cor);
+    }
+
     public function getIdProduto(){
         return $this->idProduto;
     }
@@ -131,6 +148,50 @@ class Produtos {
         return $this;
     }
 
+    public function insertProdutos() {
+        $fabricanteDB = $this->getFabricante();
+        $nomeDB = $this->getNome();
+        $marcaDB = $this->getMarca();
+        $modeloDB = $this->getModelo();
+        $id_categoriaDB = $this->getIdCategoria();
+        $desc_produtoDB = $this->getDescricao();
+        $uni_medidaDB = $this->getUnidadeMedida();
+        $larguraDB = $this->getLargura();
+        $alturaDB = $this->getAltura();
+        $profundidadeDB = $this->getProfundidade();
+        $pesoDB = $this->getPeso();
+        $corDB = $this->getCor();
+
+        $sqlCommand = "INSERT INTO produtos (fabricante, nome, marca, modelo, idCategoria, descricao, unidadeMedida, largura, altura, profundidade, peso, cor) values ('$fabricanteDB', '$nomeDB', '$marcaDB', '$modeloDB', '$id_categoriaDB', '$desc_produtoDB', '$uni_medidaDB', '$larguraDB', '$alturaDB', '$profundidadeDB', '$pesoDB', '$corDB');";
+        return $sqlCommand;
+    }
+    public function selectProdutos() {
+    
+        $sqlCommand = "SELECT *FROM produtos;";
+        return $sqlCommand;
+    }
+    public function updateProdutos() {
+        $fabricanteDB = $this->getFabricante();
+        $nomeDB = $this->getNome();
+        $marcaDB = $this->getMarca();
+        $modeloDB = $this->getModelo();
+        $id_categoriaDB = $this->getIdCategoria();
+        $desc_produtoDB = $this->getDescricao();
+        $uni_medidaDB = $this->getUnidadeMedida();
+        $larguraDB = $this->getLargura();
+        $alturaDB = $this->getAltura();
+        $profundidadeDB = $this->getProfundidade();
+        $pesoDB = $this->getPeso();
+        $corDB = $this->getCor();
+
+        $sqlCommand = "UPDATE produtos SET fabricante = '$fabricanteDB', nome = '$nomeDB', marca = '$marcaDB', modelo = '$modeloDB', idCategoria = '$id_categoriaDB', descricao = '$desc_produtoDB', unidadeMedida = '$uni_medidaDB', largura = '$larguraDB', altura = '$alturaDB', profundidade = '$profundidadeDB', peso = '$pesoDB', cor = '$corDB' WHERE idProduto = '';";
+        return $sqlCommand;
+    }
+    public function deleteProdutos() {
+
+        $sqlCommand = "DELETE FROM produtos WHERE idProduto = '';";
+        return $sqlCommand;
+    }
 }
 
 ?>

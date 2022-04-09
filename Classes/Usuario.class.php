@@ -1,5 +1,6 @@
 <?php
-
+include_once "DBConn.class.php";
+$DBConn = new DBConn();
 class Usuario {
     private $idUsuario;
     private $email;
