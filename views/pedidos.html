@@ -27,15 +27,15 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Data do pedido:</label>
-            <input name="dt_pedido" required="required" type="datetime" class="form-control" id="exampleFormControlInput1">
+            <input name="dt_pedido" required="required" type="datetime-local" class="form-control" id="exampleFormControlInput1">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Data do pagamento:</label>
-            <input name="dt_pagamento" required="required" type="datetime" class="form-control" id="exampleFormControlInput1">
+            <input name="dt_pagamento" required="required" type="datetime-local" class="form-control" id="exampleFormControlInput1">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Data da Nota Fiscal:</label>
-            <input name="dt_nota_fiscal" required="required" type="datetime" class="form-control" id="exampleFormControlInput1">
+            <input name="dt_nota_fiscal" required="required" type="datetime-local" class="form-control" id="exampleFormControlInput1">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nota Fiscal:</label>
@@ -43,15 +43,15 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Data do envio:</label>
-            <input name="dt_envio" required="required" type="datetime" class="form-control" id="exampleFormControlInput1">
+            <input name="dt_envio" required="required" type="datetime-local" class="form-control" id="exampleFormControlInput1">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Data do recebimento:</label>
-            <input name="dt_recebimento" required="required" type="datetime" class="form-control" id="exampleFormControlInput1">
+            <input name="dt_recebimento" required="required" type="datetime-local" class="form-control" id="exampleFormControlInput1">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Tipo de frete</label>
-            <input name="tipo_frete" required="required" type="number" maxlength="1" class="form-control" id="exampleFormControlInput1" placeholder="Digite o tipo de frete (0 = Retirada, 1 = PAC, 2 = SEDEX, 3 = MOTOBOY, 4 = TRANSPORTADORA)">
+            <input name="tipo_frete" required="required" type="number" max="4" class="form-control" id="exampleFormControlInput1" placeholder="Digite o tipo de frete (0 = Retirada, 1 = PAC, 2 = SEDEX, 3 = MOTOBOY, 4 = TRANSPORTADORA)">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Rastreio do frete:</label>
@@ -91,7 +91,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Referência:</label>
-            <input name="entrega_referencia" required="required" type="text" maxlength="255" class="form-control" id="exampleFormControlInput1" placeholder="Digite a referência...">
+            <input name="entrega_referencia" type="text" maxlength="255" class="form-control" id="exampleFormControlInput1" placeholder="Digite a referência...">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Valor total:</label>
@@ -103,7 +103,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Data de devolução:</label>
-            <input name="dt_devolucao" required="required" type="datetime" class="form-control" id="exampleFormControlInput1">
+            <input name="dt_devolucao" required="required" type="datetime-local" class="form-control" id="exampleFormControlInput1">
         </div>
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Motivo da devolução:</label>
