@@ -286,11 +286,13 @@ class Pedidos {
         return $sqlCommand;
     }
     public function selectPedidos() {
-    
-        $sqlCommand = "SELECT *FROM pedidos;";
+        $id_pedidoDB = $this->getIdPedido();
+
+        $sqlCommand = "SELECT *FROM pedidos WHERE idPedido = '$id_pedidoDB';";
         return $sqlCommand;
     }
     public function updatePedidos() {
+        $id_pedidoDB = $this->getIdPedido();
         $id_usuarioDB = $this->getIdUsuario();
         $dt_pedidoDB = $this->getDtPedido();
         $dt_pagamentoDB = $this->getDtPagamento();
@@ -314,12 +316,13 @@ class Pedidos {
         $dt_devolucaoDB = $this->getDtDevolucao();
         $motivo_devolucaoDB = $this->getMotivoDevolucao();
 
-        $sqlCommand = "UPDATE pedidos SET idUsuario = '$id_usuarioDB', dtPedido = '$dt_pedidoDB', dtPagamento = '$dt_pagamentoDB', dtNotaFiscal = '$dt_nota_fiscalDB', notaFiscal = '$nota_fiscalDB', dtEnvio = '$dt_envioDB', dtRecebimento = '$dt_recebimentoDB', tipoFrete = '$tipo_freteDB', rastreioFrete = '$rastreio_freteDB', entregaendereco = '$entrega_enderecoDB', entregaNumero = '$entrega_numeroDB', entregaCompl = '$entrega_complDB', entregaBairro = '$entrega_bairroDB', entregaCidade = '$entrega_cidadeDB', entregaUF = '$entrega_ufDB', entregaCEP = '$entrega_cepDB', entregaTelefone = '$entrega_telefoneDB', entregaRefer = '$entrega_referenciaDB', valorTotal = '$valor_totalDB', qtdItems = '$qtd_itemsDB', dtDevolucao = '$dt_devolucaoDB', motivoDevolucao = '$motivo_devolucaoDB' WHERE idPedido = '';";
+        $sqlCommand = "UPDATE pedidos SET idUsuario = '$id_usuarioDB', dtPedido = '$dt_pedidoDB', dtPagamento = '$dt_pagamentoDB', dtNotaFiscal = '$dt_nota_fiscalDB', notaFiscal = '$nota_fiscalDB', dtEnvio = '$dt_envioDB', dtRecebimento = '$dt_recebimentoDB', tipoFrete = '$tipo_freteDB', rastreioFrete = '$rastreio_freteDB', entregaendereco = '$entrega_enderecoDB', entregaNumero = '$entrega_numeroDB', entregaCompl = '$entrega_complDB', entregaBairro = '$entrega_bairroDB', entregaCidade = '$entrega_cidadeDB', entregaUF = '$entrega_ufDB', entregaCEP = '$entrega_cepDB', entregaTelefone = '$entrega_telefoneDB', entregaRefer = '$entrega_referenciaDB', valorTotal = '$valor_totalDB', qtdItems = '$qtd_itemsDB', dtDevolucao = '$dt_devolucaoDB', motivoDevolucao = '$motivo_devolucaoDB' WHERE idPedido = '$id_pedidoDB';";
         return $sqlCommand;
     }
     public function deletePedidos() {
+        $id_pedidoDB = $this->getIdPedido();
 
-        $sqlCommand = "DELETE FROM pedidos WHERE idPedido = '';";
+        $sqlCommand = "DELETE FROM pedidos WHERE idPedido = '$id_pedidoDB';";
         return $sqlCommand;
     }
 }

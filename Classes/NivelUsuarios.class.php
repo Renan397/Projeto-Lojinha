@@ -34,19 +34,22 @@ class NivelUsuarios {
         return $sqlCommand;
     }
     public function selectNivelUsuario() {
-    
-        $sqlCommand = "SELECT *FROM nivelUsuarios;";
+        $id_nivelusuarioDB = $this->getIdNivelUsuario();
+
+        $sqlCommand = "SELECT *FROM nivelUsuarios WHERE idNivelUsuario = '$id_nivelusuarioDB';";
         return $sqlCommand;
     }
     public function updateNivelUsuario() {
+        $id_nivelusuarioDB = $this->getIdNivelUsuario();
         $nivel_usuarioDB = $this->getNivel();
 
-        $sqlCommand = "UPDATE nivelUsuarios SET nivel = '$nivel_usuarioDB' WHERE idNivelUsuario = '';";
+        $sqlCommand = "UPDATE nivelUsuarios SET nivel = '$nivel_usuarioDB' WHERE idNivelUsuario = '$id_nivelusuarioDB';";
         return $sqlCommand;
     }
     public function deleteNivelUsuario() {
+        $id_nivelusuarioDB = $this->getIdNivelUsuario();
 
-        $sqlCommand = "DELETE FROM nivelUsuarios WHERE idNivelUsuario = '';";
+        $sqlCommand = "DELETE FROM nivelUsuarios WHERE idNivelUsuario = '$id_nivelusuarioDB';";
         return $sqlCommand;
     }
 }

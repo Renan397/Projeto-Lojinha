@@ -42,13 +42,13 @@ $resultSet  = $DBConn->query($estoque->insertEstoque());
 
 if (!$resultSet) {
 echo "<center><br><br><div class='alert alert-danger' style='width: 50%;' role='alert'>Não foi possível fazer o registro, tente novamente.</div>
-<button style='background-color: #3CB371;' id='bttn_voltar' onclick='voltar()' class='btn btn-primary'>Voltar</button>
+<button style='background-color: #cc0000;;' id='bttn_voltar' onclick='voltar()' class='btn btn-primary'>Voltar</button>
 </center>
 ";
 }
 else {
 echo "<center><br><br><div class='alert alert-success' style='width: 50%;' role='alert'>Registro feito com sucesso!</div>
-<button style='background-color: #3CB371;' id='bttn_voltar' onclick='voltar()' class='btn btn-primary'>Voltar</button>
+<button style='background-color: #cc0000;;' id='bttn_voltar' onclick='voltar()' class='btn btn-primary'>Voltar</button>
 <center>
 ";
 
@@ -56,7 +56,7 @@ echo "<center><br><br><div class='alert alert-success' style='width: 50%;' role=
 }
 else {
     echo "<center><br><br><div class='alert alert-danger' style='width: 50%;' role='alert'>Nenhuma requisição foi feita!</div>
-    <button style='background-color: #3CB371;' id='bttn_voltar' onclick='voltar()' class='btn btn-primary'>Voltar</button>
+    <button style='background-color: #cc0000;;' id='bttn_voltar' onclick='voltar()' class='btn btn-primary'>Voltar</button>
     <center>";
 }
 ?>

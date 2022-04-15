@@ -34,20 +34,22 @@ class Categorias {
         return $sqlCommand;
     }
     public function selectCategoria() {
-        $desc_categoriaDB = $this->getDescricao();
+        $id_categoriaDB = $this->getIdCategoria();
 
-        $sqlCommand = "SELECT *FROM categorias";
+        $sqlCommand = "SELECT *FROM categorias WHERE idCategoria = '$id_categoriaDB'";
         return $sqlCommand;
     }
     public function updateCategoria() {
+        $id_categoriaDB = $this->getIdCategoria();
         $desc_categoriaDB = $this->getDescricao();
-
-        $sqlCommand = "UPDATE categorias SET descricao = '$desc_categoriaDB' WHERE idCategoria = ''";
+        
+        $sqlCommand = "UPDATE categorias SET descricao = '$desc_categoriaDB' WHERE idCategoria = '$id_categoriaDB'";
         return $sqlCommand;
     }
     public function deleteCategoria() {
-        
-        $sqlCommand = "DELETE FROM categorias WHERE idCategoria = ''";
+        $id_categoriaDB = $this->getIdCategoria();
+
+        $sqlCommand = "DELETE FROM categorias WHERE idCategoria = '$id_categoriaDB'";
         return $sqlCommand;
     }
 }

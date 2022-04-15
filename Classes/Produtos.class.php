@@ -166,11 +166,13 @@ class Produtos {
         return $sqlCommand;
     }
     public function selectProdutos() {
-    
-        $sqlCommand = "SELECT *FROM produtos;";
+        $id_produtoDB = $this->getIdProduto();
+
+        $sqlCommand = "SELECT *FROM produtos WHERE idProduto = '$id_produtoDB';";
         return $sqlCommand;
     }
     public function updateProdutos() {
+        $id_produtoDB = $this->getIdProduto();
         $fabricanteDB = $this->getFabricante();
         $nomeDB = $this->getNome();
         $marcaDB = $this->getMarca();
@@ -184,12 +186,13 @@ class Produtos {
         $pesoDB = $this->getPeso();
         $corDB = $this->getCor();
 
-        $sqlCommand = "UPDATE produtos SET fabricante = '$fabricanteDB', nome = '$nomeDB', marca = '$marcaDB', modelo = '$modeloDB', idCategoria = '$id_categoriaDB', descricao = '$desc_produtoDB', unidadeMedida = '$uni_medidaDB', largura = '$larguraDB', altura = '$alturaDB', profundidade = '$profundidadeDB', peso = '$pesoDB', cor = '$corDB' WHERE idProduto = '';";
+        $sqlCommand = "UPDATE produtos SET fabricante = '$fabricanteDB', nome = '$nomeDB', marca = '$marcaDB', modelo = '$modeloDB', idCategoria = '$id_categoriaDB', descricao = '$desc_produtoDB', unidadeMedida = '$uni_medidaDB', largura = '$larguraDB', altura = '$alturaDB', profundidade = '$profundidadeDB', peso = '$pesoDB', cor = '$corDB' WHERE idProduto = '$id_produtoDB';";
         return $sqlCommand;
     }
     public function deleteProdutos() {
+        $id_produtoDB = $this->getIdProduto();
 
-        $sqlCommand = "DELETE FROM produtos WHERE idProduto = '';";
+        $sqlCommand = "DELETE FROM produtos WHERE idProduto = '$id_produtoDB';";
         return $sqlCommand;
     }
 }

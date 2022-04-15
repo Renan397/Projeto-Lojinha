@@ -94,11 +94,13 @@ class ItemsPedido {
         return $sqlCommand;
     }
     public function selectItemsPedido() {
-    
-        $sqlCommand = "SELECT *FROM itemsPedido;";
+        $id_itemspedidoDB = $this->getIdItemPedido();
+
+        $sqlCommand = "SELECT *FROM itemsPedido WHERE idItemPedido = '$id_itemspedidoDB';";
         return $sqlCommand;
     }
     public function updateItemsPedido() {
+        $id_itemspedidoDB = $this->getIdItemPedido();
         $ordemDB = $this->getOrdem();
         $id_pedidoDB = $this->getIdPedido();
         $id_estoqueDB = $this->getIdEstoque();
@@ -106,12 +108,13 @@ class ItemsPedido {
         $dt_devolucaoDB = $this->getDtDevolucao();
         $motivo_devolucaoDB = $this->getMotivoDevolucao();
 
-        $sqlCommand = "UPDATE itemsPedido SET ordem = '$ordemDB', idPedido = '$id_pedidoDB', idEstoque = '$id_estoqueDB', qtdItem = '$qtd_itemDB', dtDevolucao = '$dt_devolucaoDB', motivoDevolucao = '$motivo_devolucaoDB' WHERE idItemPedido = '';";
+        $sqlCommand = "UPDATE itemsPedido SET ordem = '$ordemDB', idPedido = '$id_pedidoDB', idEstoque = '$id_estoqueDB', qtdItem = '$qtd_itemDB', dtDevolucao = '$dt_devolucaoDB', motivoDevolucao = '$motivo_devolucaoDB' WHERE idItemPedido = '$id_itemspedidoDB';";
         return $sqlCommand;
     }
     public function deleteItemsPedido() {
-
-        $sqlCommand = "DELETE FROM itemsPedido WHERE idItemPedido = '';";
+        $id_itemspedidoDB = $this->getIdItemPedido();
+        
+        $sqlCommand = "DELETE FROM itemsPedido WHERE idItemPedido = '$id_itemspedidoDB';";
         return $sqlCommand;
     }
 

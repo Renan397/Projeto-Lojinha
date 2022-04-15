@@ -176,11 +176,13 @@ class Usuarios {
         return $sqlCommand;
     }
     public function selectUsuarios() {
-    
-        $sqlCommand = "SELECT *FROM usuarios;";
+        $id_usuarioDB = $this->getIdUsuario();
+
+        $sqlCommand = "SELECT *FROM usuarios WHERE idUsuario = '$id_usuarioDB';";
         return $sqlCommand;
     }
     public function updateUsuarios() {
+        $id_usuarioDB = $this->getIdUsuario();
         $emailDB = $this->getEmail();
         $senhaDB = $this->getSenha();
         $usuario_idnivelDB = $this->getIdNivelUsuario();
@@ -194,12 +196,13 @@ class Usuarios {
         $telefoneDB = $this->getTelefone();
         $fotoDB = $this->getFoto();
 
-        $sqlCommand = "UPDATE usuarios SET email = '$emailDB', senha = '$senhaDB', idNivelUsuario = '$usuario_idnivelDB', nome = '$nomeDB', cpf = '$cpfDB', endereco = '$enderecoDB', bairro = '$bairroDB', cidade = '$cidadeDB', uf = '$ufDB', cep = '$cepDB', telefone = '$telefoneDB', foto = '$fotoDB' WHERE idUsuario = '';";
+        $sqlCommand = "UPDATE usuarios SET email = '$emailDB', senha = '$senhaDB', idNivelUsuario = '$usuario_idnivelDB', nome = '$nomeDB', cpf = '$cpfDB', endereco = '$enderecoDB', bairro = '$bairroDB', cidade = '$cidadeDB', uf = '$ufDB', cep = '$cepDB', telefone = '$telefoneDB', foto = '$fotoDB' WHERE idUsuario = '$id_usuarioDB';";
         return $sqlCommand;
     }
     public function deleteUsuarios() {
+        $id_usuarioDB = $this->getIdUsuario();
 
-        $sqlCommand = "DELETE FROM usuarios WHERE idUsuario = '';";
+        $sqlCommand = "DELETE FROM usuarios WHERE idUsuario = '$id_usuarioDB';";
         return $sqlCommand;
     }
 }

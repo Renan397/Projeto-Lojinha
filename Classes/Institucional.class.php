@@ -154,11 +154,13 @@ class Institucional {
         return $sqlCommand;
     }
     public function selectInstitucional() {
+        $id_institucionalDB = $this->getIdInstitucional();
     
-        $sqlCommand = "SELECT *FROM institucional;";
+        $sqlCommand = "SELECT *FROM institucional WHERE idInstituicao = '$id_institucionalDB';";
         return $sqlCommand;
     }
     public function updateInstitucional() {
+        $id_institucionalDB = $this->getIdInstitucional();
         $nome_institucionalDB = $this->getNome();
         $cpf_cnpjDB = $this->getCpf_cnpj();
         $tipo_PessoaDB = $this->getTipoPessoa();
@@ -171,12 +173,13 @@ class Institucional {
         $emailDB = $this->getEmail();
         $logoDB = $this->getLogo();
 
-        $sqlCommand = "UPDATE institucional SET cpf_cnpj = '$cpf_cnpjDB', tipoPessoa = '$tipo_PessoaDB', endereco = '$enderecoDB', bairro = '$bairroDB', cidade = '$cidadeDB', uf = '$ufDB', cep = '$cepDB', telefone = '$telefoneDB', email = '$emailDB', logo = '$logoDB' WHERE idInstituicao = '';";
+        $sqlCommand = "UPDATE institucional SET nome = '$nome_institucionalDB', cpf_cnpj = '$cpf_cnpjDB', tipoPessoa = '$tipo_PessoaDB', endereco = '$enderecoDB', bairro = '$bairroDB', cidade = '$cidadeDB', uf = '$ufDB', cep = '$cepDB', telefone = '$telefoneDB', email = '$emailDB', logo = '$logoDB' WHERE idInstituicao = '$id_institucionalDB';";
         return $sqlCommand;
     }
     public function deleteInstitucional() {
-
-        $sqlCommand = "DELETE FROM institucional WHERE idInstituicao = '';";
+        $id_institucionalDB = $this->getIdInstitucional();
+        
+        $sqlCommand = "DELETE FROM institucional WHERE idInstituicao = '$id_institucionalDB';";
         return $sqlCommand;
     }
 }
