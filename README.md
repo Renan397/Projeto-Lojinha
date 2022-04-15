@@ -1,4 +1,4 @@
 # Projeto-Lojinha
-Nome: Renan Siqueira dos Santos
-GU3006131
-4º ano Informática
+**Nome:** Renan Siqueira dos Santos <br><br>
+**GU3006131** <br><br>
+4º ano Informática <br><br>
