@@ -1,1 +1,1 @@
-Ps: O script do banco de dados se encontra no caminho "source/database".
+Ps: O script do Banco de Dados se encontra em "source/database/lojinha.sql".
